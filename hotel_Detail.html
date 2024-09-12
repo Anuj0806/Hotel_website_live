@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Room</title>
+        <link rel="icon" href="./image/hotel-sign.png">
+        <link href="./css/materialize.css" rel="stylesheet">    
+        <link rel="stylesheet" href="./css/general.css">
+        <script src="./script/admin.js" type="text/javascript"></script>   
+        <script defer src="./script/materialize.js"></script>
+          <script>
+             const AdminEmail = sessionStorage.getItem('AdminEmail');
+            if (AdminEmail === null) {
+                window.location.href = 'adminLogin.html';
+            }
+      
+
+        </script>
+        <style>
+            @media only screen and (max-width: 992px) {
+                table.responsive-table th {
+                    /*display: block  ;*/
+                    text-align: left;
+                }
+            }
+            @media only screen and (max-width: 992px) {
+                table.responsive-table thead {
+                    border: 0;
+                    border-right: 1px solid rgba(0, 0, 0, 0.12);
+                    background: #0097a7;
+                }
+                table.responsive-table tbody {
+                    border: 0;
+                    border-right: 1px solid rgba(0, 0, 0, 0.12);
+                    background: #1bbecf3b;
+                }
+            }
+            thead{
+                background: #0097a7;
+            }
+            tbody{
+                background: #1bbecf3b;
+            }
+            .container{
+                margin: 10px auto;    
+            }
+            body{
+                background: linear-gradient(to right, #89b9c3, #7ea7b7);
+            }
+       
+
+        
+            .input-field>label {
+                color: white;
+            }
+            input{
+                color: white;
+            }
+        </style>
+    </head>
+    <body onload="populate_hotel_detail()">
+        <!-- Navbar -->
+        <nav class="cyan darken-2">
+            <div class="nav-wrapper">          
+                <a href="adminHomePage.html" class="brand-logo center">Hotel Details</a>           
+            </div>
+        </nav>
+
+        <!-- Table Section -->
+        <div class="container">
+            <table class="highlight responsive-table scrollit">
+            <thead>
+                    <tr>
+                        <th class="text">Hotel_id</th>
+                        <th>Hotel_name</th>
+                        <th>Hotel_address</th>
+                        <th>Phone</th>                                                                                     
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
+

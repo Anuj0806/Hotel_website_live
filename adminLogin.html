@@ -1,0 +1,103 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="./image/hotel-sign.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="./css/materialize.css">     
+        <link rel="stylesheet" href="./css/MaterialIcons.css">     
+        <link rel="stylesheet" href="./css/internal.css">
+        <script src="./script/materialize.js"></script>   
+        <script src="./script/admin.js"></script>   
+        <script type="text/javascript">
+            const AdminEmail = sessionStorage.getItem('AdminEmail');
+            if (AdminEmail !== null) {
+                sessionStorage.removeItem("AdminEmail");
+            }
+        </script>
+        <style>
+            body{
+                background: linear-gradient(to right, #8b74b570, #a29ca6);
+                color: white;
+            }
+            input{
+                color: white;
+            }
+            .container{
+                background: linear-gradient(to right, #9181a3, #718e9a);
+            }
+            .btn{
+                background: linear-gradient(to right, #ab96c1, #a3beca);
+            }
+            /* Ensure the footer with marquee stays at the bottom */
+            .popup-content{
+                background: linear-gradient(to right, #5a7378, #577f8f);
+            }
+            .footer-marquee {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #7e6f7f;
+                color: #fff;
+                overflow: hidden;
+                white-space: nowrap;
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+                z-index: 20;
+            }
+
+            .marquee-content {
+                display: inline-block;              
+                font-size: 14px;
+                line-height: 20px;
+                animation: marquee 15s linear infinite;
+            }
+            .center-align{
+                margin: 0px;
+            }
+
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+        </style>      
+    </head>
+    <body>            
+        <div class="container">
+            <div class="left-side" id="left-side">
+                <div id="signin" class="display">
+                    <h4 id="signin-header">Admin Login</h4>
+                    <p id="signin-text">Enter your Details</p>
+                    <p>and Login as Admin</p>                 
+                </div>
+
+            </div>
+            <div class="right-side">
+                <div class="login-form active" id="login-form">
+                    <h4>Admin Login</h4>
+                    <form>
+                        <div class="input-field">
+                            <input type="email" id="admin_username" required>
+                            <label for="admin_username">Enter Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id="admin_password" required>
+                            <label for="admin_password">Enter Password</label>
+                        </div>
+                        <div class="loader" style="margin: auto" id="loaderactive"></div>                      
+                        <button class="btn waves-effect waves-light" id="disablebutton" onclick="getlogin_data_admin()"  type="button">Let me in.</button>                                            
+                    </form>
+                </div>      
+            </div>
+
+        </div>
+        <!-- Marquee Footer -->
+        <div class="footer-marquee">
+            <div class="marquee-content">
+                <p class="center-align white-text">Usename : admin1@gmail.com  &nbsp;&nbsp;&nbsp;&nbsp;  Password : 1234  &nbsp;&nbsp;&nbsp;&nbsp; This is for Test The Website</p>
+            </div>
+        </div>
+
+    </body>
+</html>
+

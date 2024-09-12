@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./image/hotel-sign.png">
+        <title>Hotel Management</title> 
+        <link href="./css/materialize.css" rel="stylesheet">
+        <link href="./css/MaterialIcons.css" rel="stylesheet">
+        <style>
+            body{
+                    background: linear-gradient(to right, #90becb, #31738f);
+            }
+            nav{
+                    background-color: #4e7584;
+            }
+            @media only screen and (max-width: 992px) {
+                nav .brand-logo {
+                    left: 32%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                }
+
+                /* For mobile, hide the submenus initially */
+                .sidenav .submenu {
+                    display: none;
+                    padding-left: 20px;
+                }
+            }
+
+            /* For full screen desktop view, enable hover on dropdowns */
+            @media only screen and (min-width: 993px) {
+                /* Ensure the dropdown shows on hover for desktop */
+                .dropdown-content {
+                    display: none;
+                }
+
+                li:hover > .dropdown-content {
+                    display: block !important;
+                }
+            }
+            .dropdown-content{
+                    background: linear-gradient(to right, rgb(144, 190, 203), rgb(183 200 207));
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Dropdown Structure -->
+        <ul id="roomDropdown" class="dropdown-content">
+            <li><a href="add_room.html">Add Room</a></li>
+            <li><a href="edit_room.html">Edit Room</a></li>
+        </ul>
+
+        <ul id="employeeDropdown" class="dropdown-content">
+            <li><a href="addEmployee.html">New Employee</a></li>
+            <li class="admin-menu" style="display:none;"><a href="editEmployee.html">Edit Employee</a></li>
+        </ul>
+
+        <ul id="reservationDropdown" class="dropdown-content">
+            <li><a href="showPayment.html">Show Payment</a></li>
+            <li><a href="approveRoom.html">Approve Room</a></li>
+            <li><a href="vacantRoom.html">Vacant Room</a></li>
+            <li><a href="reserverd_room.html">Reserved Room</a></li>
+        </ul>
+
+        <!-- Navbar for Desktop View -->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo" id="hotelName">Hotel Management</a>
+                <!-- Sidenav trigger for mobile -->
+                <a href="#" class="sidenav-trigger right" data-target="mobile-nav"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="admin-menu" style="display:none;">
+                        <a class="dropdown-trigger"  data-target="roomDropdown">Room Details<i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    <li class="employee-menu" style="display:none;">
+                        <a class="dropdown-trigger"  data-target="employeeDropdown">Employee Details<i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    <li class="employee-menu" style="display:none;">
+                        <a class="dropdown-trigger" data-target="reservationDropdown">Reservation<i class="material-icons right">arrow_drop_down</i></a>
+                    </li>
+                    <li><a href="logout.html?employee=employee">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sidenav for Mobile View -->
+        <ul class="sidenav" id="mobile-nav" style="    background: linear-gradient(to right, rgb(144, 190, 203), rgb(183 200 207));">
+            <li><a href="#" class="sidenav-close"><i class="material-icons">close</i></a></li>
+            <!-- Room Details -->
+            <li class="admin-menu" style="display:none;">
+                <a href="#" class="submenu-toggle">Room Details<i class="material-icons right">arrow_drop_down</i></a>
+                <ul class="submenu">
+                    <li><a href="add_room.html">Add Room</a></li>
+                    <li><a href="edit_room.html">Edit Room</a></li>
+                </ul>
+            </li>
+            <!-- Employee Details -->
+            <li class="employee-menu" style="display:none;">
+                <a href="#" class="submenu-toggle">Employee Details<i class="material-icons right">arrow_drop_down</i></a>
+                <ul class="submenu">
+                    <li><a href="addEmployee.html">New Employee</a></li>
+                    <li class="admin-menu" style="display:none;"><a href="editEmployee.html">Edit Employee</a></li>
+                </ul>
+            </li>
+            <!-- Reservation -->
+            <li class="employee-menu" style="display:none;">
+                <a href="#" class="submenu-toggle">Reservation<i class="material-icons right">arrow_drop_down</i></a>
+                <ul class="submenu">
+                    <li><a href="showPayment.html">Show Payment</a></li>
+                    <li><a href="approveRoom.html">Approve Room</a></li>
+                    <li><a href="vacantRoom.html">Vacant Room</a></li>
+                    <li><a href="reserverd_room.html">Reserved Room</a></li>
+                </ul>
+            </li>
+            <!-- Logout -->
+            <li><a href="logout.html?employee=employee">Log Out</a></li>
+        </ul>
+
+        <!-- jQuery and Materialize JS -->
+        <script src="./script/jquerymin.js"></script> <!-- Load jQuery first -->
+        <script src="./script/materialize.js"></script> <!-- Load Materialize JS -->
+        <script src="./script/employee.js"></script> <!-- Load Materialize JS -->
+        <script>
+            $(document).ready(function () {
+                // Initialize Materialize Sidenav for mobile view
+                hotelNameFunction();
+                var sidenavElems = document.querySelectorAll('.sidenav');
+                M.Sidenav.init(sidenavElems);
+
+                // Toggle submenu on click for mobile view
+                $('.submenu-toggle').on('click', function(e) {
+                    e.preventDefault();
+                    $(this).next('.submenu').slideToggle(); // Toggle the visibility of the next submenu
+                    $(this).find('i').toggleClass('arrow_drop_up arrow_drop_down'); // Toggle icon
+                });
+
+                // Check session storage for user session
+                const employeeEmail = sessionStorage.getItem('employeeEmail');
+                const employeeType = sessionStorage.getItem('employeeType');
+
+                if (employeeEmail === null) {
+                    window.location.href = 'employee_login.html';
+                    return;
+                }
+
+                // Show admin and employee menu items based on type
+                if (employeeType === 'A' || employeeType === 'SA') {
+                    document.querySelectorAll('.admin-menu').forEach(menuItem => menuItem.style.display = 'block');
+                }
+                if (employeeType === 'A' || employeeType === 'R' || employeeType === 'SA') {
+                    document.querySelectorAll('.employee-menu').forEach(menuItem => menuItem.style.display = 'block');
+                }
+
+                // Initialize dropdowns using Materialize method for desktop view
+                var dropdownElems = document.querySelectorAll('.dropdown-trigger');
+                M.Dropdown.init(dropdownElems, {
+                    hover: true, // Open dropdown on hover for desktop
+                    coverTrigger: false // Prevent the dropdown from covering the trigger element
+                });
+            });
+        </script>
+    </body>
+</html>

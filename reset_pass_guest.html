@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="./image/hotel-sign.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Employee Login</title>
+        <link rel="stylesheet" href="./css/materialize.css">     
+        <link rel="stylesheet" href="./css/MaterialIcons.css">     
+        <link rel="stylesheet" href="./css/internal.css">
+        <link href="./css/general.css" rel="stylesheet"> 
+        <script src="./script/materialize.js"></script>
+        <script src="./script/guest.js"></script>      
+        <script src="./script/emailjs.js" type="text/javascript"></script>
+        <style>
+            body{
+                background: linear-gradient(to right, #2b3031, #577f8f);
+                color: white;
+            }
+            input{
+                color: white;
+            }
+            .container{
+                background: linear-gradient(to right, #5a7378, #577f8f);
+            }
+            /* Ensure the footer with marquee stays at the bottom */
+            .popup-content{
+                background: linear-gradient(to right, #5a7378, #577f8f);
+            }
+            .footer-marquee {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #000;
+                color: #fff;
+                overflow: hidden;
+                white-space: nowrap;
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+                z-index: 20;
+            }
+
+            .marquee-content {
+                display: inline-block;              
+                font-size: 14px;
+                line-height: 20px;
+                animation: marquee 15s linear infinite;
+            }
+            .center-align{
+                margin: 0px;
+            }
+
+            @keyframes marquee {
+                0% { transform: translateX(100%); }
+                100% { transform: translateX(-100%); }
+            }
+        </style>      
+    </head>
+    <body>
+        <div class="container">
+            <div class="left-side" id="left-side">
+                <div id="signin" class="display">
+                    <h4 id="signin-header">Change Password</h4>
+                    <p id="signin-text">Enter your Details</p>
+                    <p>and Change Your Password</p>                 
+                </div>
+            </div>
+   
+            <div class="right-side">
+                <div class="login-form active" id="login-form">
+                    <h4>Change Password</h4>
+                    <form>
+                        <div class="input-field">
+                            <input type="text" id="user_name" required>
+                            <label for="user_name">Guest Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" id="user_email" required>
+                            <label for="user_email">Guest Email</label>
+                        </div>
+                        <div class="loader" style="margin: auto" id="loaderactive"></div>                      
+                        <button class="btn waves-effect waves-light" id="disablebutton" onclick="change_guest_pass()" type="button">Send OTP</button>                                            
+                    </form>
+                </div>      
+            </div>
+
+        </div>
+
+
+      <div id="otpPopup" class="popup ">
+            <div class="popup-content example"  style="background: linear-gradient(to right, #90becb, #31738f);color: white">                
+                <button class="btn waves-effect waves-light"   onclick="closePopup()">×</button>                      
+                    <h2>Enter OTP</h2>
+                <div id="otpInputs">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" required oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" disabled oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" disabled oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" disabled oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" disabled oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                    <input type="text" class="email-otp-input" style="width: 50px;" pattern="\d" maxlength="1" disabled oninput="handleInput(this)" onkeydown="moveToNext(this, event)">
+                </div>
+                <div>
+                    <input type="password"  name="password" autocomplete="off"  id="old_password" placeholder="Enter new Password" required>
+                    <input type="password"  name="retypepassword" autocomplete="off"  id="new_password" placeholder="Re-Enter new Password" required>
+                </div>
+                <br>
+                <div class="loader" style="margin: auto;" id="loaderactive_pop"></div>
+                <button class="btn waves-effect waves-light" id="disablebuttonsave" onclick="save_guest_password()">Save</button>
+                <button  class="btn waves-effect waves-light" id="disablebutton_pop" style="display: none" onclick="resendemail_guest()" >Resend OTP</button>
+                <div class="countdown" id="countdown">Resend available in 30 seconds</div>
+            </div>
+        </div>
+
+
+
+        <!-- Marquee Footer -->
+        <div class="footer-marquee">
+            <div class="marquee-content">
+                <p class="center-align white-text">Username: admin@gmail.com | Password: 1234 | This is for testing. Sign up with a valid email ID.</p>
+            </div>
+        </div>
+
+    </body>
+</html>
+
+
+
+
+
+</body>
+</html>

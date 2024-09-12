@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./image/hotel-sign.png">
+    
+        <link href="./css/materialize.css" rel="stylesheet">                
+        <link href="./css/MaterialIcons.css" rel="stylesheet">        
+        <script src="./script/fetch_hotel_api.js" type="text/javascript"></script>
+          <script src="./script/materialize.js" type="text/javascript"></script>
+           <script>
+             const AdminEmail = sessionStorage.getItem('AdminEmail');
+            if (AdminEmail === null) {
+                window.location.href = 'adminLogin.html';
+            }      
+        </script>
+        <style>
+            body{
+                background: linear-gradient(to right, #90becb, #31738f);
+            }
+            nav{
+                background-color: #4e7584;
+            }
+            @media only screen and (max-width: 992px) {
+                nav .brand-logo {
+                    left: 35%;
+                    -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                }
+
+                /* For mobile, hide the submenus initially */
+                .sidenav .submenu {
+                    display: none;
+                    padding-left: 20px;
+                }
+            }
+
+            /* For full screen desktop view, enable hover on dropdowns */
+            @media only screen and (min-width: 993px) {
+                /* Ensure the dropdown shows on hover for desktop */
+                .dropdown-content {
+                    display: none;
+                }
+
+                li:hover > .dropdown-content {
+                    display: block !important;
+                }
+            }
+            .dropdown-content{
+                background: linear-gradient(to right, rgb(144, 190, 203), rgb(183 200 207));
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="cyan darken-2">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo footer_data">Hotel Booking</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="employee_detail_admin.html">All Employee Details</a></li>
+                    <li><a href="show_Guest.html">Show Guest</a></li>
+                    <li><a href="hotel_Detail.html">Hotel Details</a></li>
+                    <li><a href="logout.html?admin=admin">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <ul class="sidenav" id="mobile-nav">
+            <li class="sidenav-close"><a href="#" class="sidenav-close"><i class="material-icons">close</i></a></li>
+            <li><a href="employee_detail_admin.html">All Employee Details</a></li>
+            <li><a href="show_Guest.html">Show Guest</a></li>
+            <li><a href="hotel_Detail.html">Hotel Details</a></li>
+            <li><a href="logout.html?admin=admin">Log Out</a></li>
+        </ul>
+
+
+          <script>
+                        // Initialize Materialize Sidenav for mobile view
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var elems = document.querySelectorAll('.sidenav');
+                            var instances = M.Sidenav.init(elems);
+                        });
+        </script>
+     
+    </body>
+</html>
+
+
+
+
+

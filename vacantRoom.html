@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Room</title>
+        <link rel="icon" href="./image/hotel-sign.png">
+        <link href="./css/materialize.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/tables.css">
+        <link rel="stylesheet" href="./css/tables.css">
+        <link rel="stylesheet" href="./css/loader.css">
+        <link rel="stylesheet" href="./css/general.css">
+        <script src="./script/employee.js" type="text/javascript"></script>   
+        <script defer src="./script/materialize.js"></script>
+        <style>
+            @media only screen and (max-width: 992px) {
+                table.responsive-table th {
+                    display: block  ;
+                    text-align: left;
+                }
+            }
+            @media only screen and (max-width: 992px) {
+                table.responsive-table thead {
+                    border: 0;
+                    border-right: 1px solid rgba(0, 0, 0, 0.12);
+                    background: #0097a7;
+                }
+                table.responsive-table tbody {
+                    border: 0;
+                    border-right: 1px solid rgba(0, 0, 0, 0.12);
+                    background: #1bbecf3b;
+                }
+            }
+            thead{
+                background: #0097a7;
+            }
+            tbody{
+                background: #1bbecf3b;
+            }
+            .container{
+                margin: 10px auto;    
+            }
+            body{
+                background: linear-gradient(to right, #89b9c3, #7ea7b7);
+            }
+            @media only screen and (max-width: 992px) {
+                table.responsive-table thead tr {
+                    display: block;
+                    padding: 0px 10px 16px 0px;
+                }
+            }
+
+
+            .input-field>label {
+                color: white;
+            }
+            input{
+                color: white;
+            }
+        </style>
+    </head>
+    <body onload="populate_vacant_rooms()">
+        <!-- Navbar -->
+        <nav class="cyan darken-2">
+            <div class="nav-wrapper">          
+                <a href="employee_homepage.html" class="brand-logo center">Vacant Rooms</a>           
+            </div>
+        </nav>
+
+        <!-- Table Section -->
+        <div class="container">
+            <table class="highlight responsive-table scrollit">
+                <thead>
+                    <tr>                            
+                        <th class="text">Room No</th>
+                        <th>Room Class</th>
+                        <th>Number of Beds</th>				
+                        <th>Floor</th>
+                        <th>AC or Non AC Room </th>
+                        <th>Price</th>
+                        <th>Book Room</th>
+                    </tr>
+                </thead>     
+                <tbody>
+                    <!-- Table rows will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+<div id="otpPopup" class="popup ">
+            <div class="popup-content example"  style="background: linear-gradient(to right, #90becb, #31738f);color: white">
+                <div class="header-sticky" style="background: linear-gradient(to right, #90becb, #31738f);color: white">
+                    <button class="btn waves-effect waves-light"   onclick="closePopup_bookRoom()">×</button>                                 
+                    <input type="text" hidden id="price">
+                    <input type="text" hidden id="room_id">                                                  
+                    <h4>Payment</h4>
+                    <pre> Room No :- <span id="book_room_no"></span></pre>  
+                </div>
+         <div class="login-form active" id="login-form">       
+       
+                    <form>
+                        <div class="input-field">
+                            <input type="date" min="2024-09-10" onchange="calculate_price()" value="2024-09-10" id="checkin_date" required>
+                            <label for="checkin_date">Check In</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="date" onchange="calculate_price()" min="2024-09-11" id="checkout_date" required>
+                            <label for="checkout_date">Check Out</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="guest_name" required>
+                            <label for="guest_name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" list="emailOfGuest" name="email" onchange="getDetails(this.value)" id="guest_email" required>
+                            <label for="guest_email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" id="guest_address" required>
+                            <label for="guest_address">Address</label>
+                        </div>                      
+                        <div class="input-field">
+                            <select id="card_type" style="background: linear-gradient(to right, #90becb, #31738f);color: black" onchange="showFields()" class="browser-default">
+                                <option value="">Payment Type</option>                                              
+                                <option value="Card">Card</option>
+                                <option value="Cash">Cash</option>
+                                <option value="UPI">UPI</option>
+                                <option value="Net Banking">Net Banking</option>                             
+                            </select>
+                        </div>
+
+
+
+                        <div class="input-field">
+                            <input type="text" readonly id="exampleInputAmount" required>
+                            <label for="exampleInputAmount">Total Amount</label>
+                        </div>
+                        <div class="loader" id="loaderactive"></div>
+                        <button class="btn waves-effect waves-light" id="disablebutton" onclick="book_vacent_room()" type="button">Confirm Booking</button>
+                   </form>           
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

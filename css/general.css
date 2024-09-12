@@ -1,0 +1,91 @@
+/*.input-field {
+    position: relative;
+}
+
+.input-field label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;  Add a transition effect 
+}
+
+.input-field input:focus + label {
+    top: -20px;  Move the label up when the input field is focused 
+    font-size: 14px;  Optional: reduce the font size of the label 
+}
+*/
+
+
+.header-sticky{ 
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: white;
+    padding-top: 20px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;   
+    justify-content: center;
+    align-items: center;
+    z-index: 5;   
+}
+
+.popup-content {
+    background-color: white;
+    padding: 0px 20px 20px 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    width: 90%; /* Keep the width at 90% for mobile responsiveness */
+    max-width: 500px; /* Max width for larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Add flex-wrap to allow input fields to wrap */
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds max height */
+    max-height: 80vh; /* Set max height to 80% of viewport height */
+}
+
+/* Adjust the padding and width values for smaller screens */
+@media (max-width: 600px) {
+    .popup-content {
+        width: 95%;
+        padding: 15px;
+    }
+    .input-field {
+        width: 100%; /* Make input fields take up full width */
+        margin: 8px; /* Reduce margin for better spacing */
+    }
+}
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: none;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: #25b09b;
+    animation: l15 1s infinite linear;
+}
+.loader::before,
+.loader::after {    
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: l15 2s infinite;
+}
+.loader::after {
+    margin: 8px;
+    animation-duration: 3s;
+}
+@keyframes l15{ 
+    100%{transform: rotate(1turn)}
+}
+
+@media only screen and (min-width: 450px) {
+
+}

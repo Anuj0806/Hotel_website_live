@@ -1,0 +1,56 @@
+<html>
+    <head>        
+        <title>Add New Employee</title>
+        <link rel="icon"  href="./image/hotel-sign.png">
+        <link rel="stylesheet" href="./css/form.css">
+        <link rel="stylesheet" href="./css/loader.css">
+        <script src="./script/employee.js" type="text/javascript"></script>
+    </head>
+    <body onload="footerFunction()">                         
+        <nav>
+            <ul>
+                <li class="logo footer_data"></li>            
+                <li class="items">Add New Hotel</li>       
+                <li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+            </ul>
+        </nav>
+           <div class="adjustdiv">
+        <h2>Add New Hotel Form</h2>
+        <div class="cardcon mt-3">         
+            <form  class="card-body cardbody-color p-lg-5">
+                <div class="mb-3">
+                    <input type="text" name="name"  class="form-control" id="employee_Username" autocomplete="off" aria-describedby="emailHelp"
+                           placeholder="User Name" required="">
+                </div>
+                <div class="mb-3">
+                    <input type="textarea" id="employee_add" class="form-control" placeholder="Address" name="address" rows="7" autocomplete="off" cols="10" required=""/>
+                </div>
+                <div class="mb-3">
+                    <input type="tel" maxlength="10" id="employee_phone" pattern="\d{10}" title="Phone no contain 10 Number" class="form-control" name="number" autocomplete="off" placeholder="Phone" required="">
+                </div>     
+                <div class="mb-3">
+                    <input type="email" name="email" autocomplete="off" class="form-control" id="employee_email" placeholder="Email" required="">
+                </div>                                                        
+                    <input type="hidden" name="password" autocomplete="off" class="form-control"  id="employee_password" placeholder="password" readonly="readonly">                
+                <div class="mb-3">
+                    <input type="text" name="hotel_name" autocomplete="off" class="form-control"  id="hotel_name" placeholder="Hotel Name" required="">
+                </div> 
+                <div class="mb-3">
+                    <input type="text" name="hotel_address" autocomplete="off" class="form-control"  id="hotel_add" placeholder="Hotel Address" required="">
+                </div> 
+                <div class="mb-3">
+                    <input type="text" name="addhar_no" maxlength="16" pattern="\d{16}" required=""  title="Addhar No contain 16 Number" autocomplete="off" class="form-control"  id="employee_addhar" placeholder="Enter Aaddhar Number" >
+                </div> 
+                <div class="mb-3">
+                        <input type="text" name="pan_card_no"  maxlength="10" required=""  title="Enter Correct PAN Number" autocomplete="off" class="form-control"  id="employee_pan" placeholder="Enter PAN Card Number" >
+                </div>               
+                <div class="text-center">
+                    <div class="loader" style="margin: auto" id="loaderactive"></div>
+                    <button class="btn btn-primary btn-block btn-large" onclick="add_hotel_details()" id="disablebutton" class="btn btn-color px-5 mb-5 w-100" type="button">Save Hotel Data</button>
+                </div>
+            </form>          
+        </div>
+           </div>
+               
+    </body>
+</html>

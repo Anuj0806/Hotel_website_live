@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon"  href="./image/hotel-sign.png">   
+        <title>Hotel Management</title> 
+        <link href="./css/materialize.css" rel="stylesheet">                
+        <link href="./css/MaterialIcons.css" rel="stylesheet">        
+        <script src="./script/fetch_hotel_api.js" type="text/javascript"></script>
+          <script src="./script/materialize.js" type="text/javascript"></script>
+        
+    </head>
+
+    <body onload="onloadhomepage();">
+
+        <!-- Navbar -->
+        <nav class="cyan darken-2">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo footer_data">Hotel Booking</a>
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="guestLogin.html">Guest Login</a></li>
+                    <li><a href="employee_login.html">Employee Login</a></li>
+                    <li><a href="adminLogin.html">Admin Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile Nav -->
+        <ul class="sidenav" id="mobile-nav">
+               <li class="sidenav-close"><a href="#" class="sidenav-close"><i class="material-icons">close</i></a></li>
+            <li><a href="guestLogin.html">Guest Login</a></li>
+            <li><a href="employee_login.html">Employee Login</a></li>
+            <li><a href="adminLogin.html">Admin Login</a></li>
+        </ul>
+
+        <!-- Filter Section -->
+        <div class="container" style="margin-top: 20px;">
+            <div class="row">
+                <div class="col s12 m4">
+                    <select id="price_filter" class="browser-default">
+                        <option value="" disabled selected>Select Price</option>
+                        <option value="999">Less Than 999</option>
+                        <option value="1000">1000 - 2999</option>
+                        <option value="3000">3000 - 4999</option>
+                        <option value="5000">5000+</option>
+                    </select>
+                </div>
+                <div class="col s12 m4">
+                    <select id="description_filter" class="browser-default">
+                        <option value="" disabled selected>Select City</option>
+                        <option value="Ganaur">Ganaur</option>
+                        <option value="Sonipat">Sonipat</option>
+                        <option value="Karnal">Karnal</option>
+                        <option value="Delhi">Delhi</option>
+                    </select>
+                </div>
+                <div class="col s12 m4">
+                    <select id="classInput_filter" class="browser-default">
+                        <option value="" disabled selected>Select Room Type</option>
+                        <option value="Fully AC">Fully AC</option>
+                        <option value="Non AC">Non AC</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button onclick="apply_filter_admin()" class="btn waves-effect cyan darken-2">Apply Filter</button>
+                    <button onclick="remove_filter_admin()" class="btn waves-effect red lighten-1" style="margin-left: 15px;">Remove Filter</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hotel List Section -->
+        <div class="container">
+            <div class="card-panel">
+                <h5 class="center-align">Vacant Hotel Rooms</h5>
+                <div id="hotelContainer" class="row"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer cyan darken-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <p class="footer_data center-align">© 2024 Hotel Management</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+      
+        <script>
+                        // Initialize Materialize Sidenav for mobile view
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var elems = document.querySelectorAll('.sidenav');
+                            var instances = M.Sidenav.init(elems);
+                        });
+        </script>
+    </body>
+</html>
