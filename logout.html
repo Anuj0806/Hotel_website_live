@@ -9,18 +9,18 @@ const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('admin') === 'admin') {
     // If the URL has 'admin', remove the 'AdminEmail' from sessionStorage
     sessionStorage.removeItem("AdminEmail");
-    window.location = 'adminLogin.html';
+    window.location = 'index.html';
 } else if (urlParams.has('employee')) {
     // If the URL has 'employee', remove the employee-related items from sessionStorage
     sessionStorage.removeItem("employeeEmail");
     sessionStorage.removeItem("employeeHotelId");
     sessionStorage.removeItem("employeeType");
     sessionStorage.removeItem("employeeHotelName");
-    window.location = 'employee_login.html';
+    window.location = 'index.html';
 }else if (urlParams.has('guest')) {
     // If the URL has 'employee', remove the employee-related items from sessionStorage
     sessionStorage.removeItem("GusetEmail");   
-    window.location = 'guestLogin.html';
+    window.location = 'index.html';
 }
 
 //    
