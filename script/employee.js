@@ -411,9 +411,9 @@ function add_hotel_details() {
             const lastEmpIdNumber = lastEmpId ? parseInt(lastEmpId, 10) : 1;
             const nextEmpId = lastEmpIdNumber + 1;
 
-            const lastHotelId = localStorage.getItem("lastHotelId");
-            const lastHotelIdNumber = lastHotelId ? parseInt(lastHotelId, 10) : 1;
-            const nextHotelId = lastHotelIdNumber + 1;
+            // const lastHotelId = localStorage.getItem("lastHotelId");
+            // const lastHotelIdNumber = lastHotelId ? parseInt(lastHotelId, 10) : 1;
+            // const nextHotelId = lastHotelIdNumber + 1;
 
             const employee_login_hotel = {
                 "emp_id": nextEmpId,
@@ -428,7 +428,7 @@ function add_hotel_details() {
             };
 
             const hotel_details = {
-                "hotel_id": nextHotelId,
+                "hotel_id": nextEmpId,
                 "hotel_name": hotel_name,
                 "hotel_address": hotel_add,
                 "addhar_card": employee_addhar,
@@ -460,7 +460,7 @@ function add_hotel_details() {
                     localStorage.setItem("employee_login", JSON.stringify(employeesArray));
                     localStorage.setItem("hotels_data", JSON.stringify(hotelArray));
                     localStorage.setItem("lastEmpId", nextEmpId); // Store the latest employee ID
-                    localStorage.setItem("lastHotelId", nextHotelId); // Store the latest employee ID
+                    // localStorage.setItem("lastHotelId", nextHotelId); // Store the latest employee ID
 
                     employee_Username = document.getElementById("employee_Username").value = "";
                     employee_add = document.getElementById("employee_add").value = "";
