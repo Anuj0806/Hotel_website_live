@@ -111,13 +111,7 @@
                         </div>
 
                   
-                            <select id="emp_type" name="emp_type" required>
-                                <option value="">--Select Type--</option>
-                                <option value="SA">Sub Admin</option>
-                                <!--<option value="A">Admin</option>-->
-                                <option value="R">For Reception Department</option> 
-                            </select>
-                        
+                       
                 
                         <div class="input-field">
                                   <label for="address">Address</label>
@@ -132,7 +126,14 @@
                             <input type="text" id="email" name="floor" required>
 
                         </div>
-                                      
+                 <div class="input-field">
+                                 <select id="emp_type" name="emp_type" required>
+                                <option value="">--Select Type--</option>
+                                <option value="SA">Sub Admin</option>
+                                <!--<option value="A">Admin</option>-->
+                                <option value="R">For Reception Department</option> 
+                            </select>
+                 </div>
                     <button type="button" class="btn waves-effect waves-light" onclick="saveEditEmployee()">  Update Employee</button>
 
                 </div>
