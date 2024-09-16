@@ -1106,7 +1106,7 @@ function saveEditEmployee() {
     }
 
     // Save the updated details back to local storage
-    let employeeLocal = JSON.parse(localStorage.getItem('rooms')) || [];
+    let employeeLocal = JSON.parse(localStorage.getItem('employee_login')) || [];
     const employeeIndex = employee_json.findIndex(employee => employee.emp_id === parseInt(employee_id, 10));
     if (employeeIndex !== -1) {
         employeeLocal[employeeIndex].name = name;
