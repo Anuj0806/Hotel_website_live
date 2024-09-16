@@ -1086,6 +1086,7 @@ function edit_employee(employee_id) {
         document.getElementById("email").value = employee.email;
         document.getElementById("emp_type").value = employee.type;
         document.getElementById("employee_id").value = employee_id;
+          M.updateTextFields(); // This function updates the labels to their correct state
     });
 }
 function saveEditEmployee() {
