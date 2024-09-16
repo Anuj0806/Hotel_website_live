@@ -1,5 +1,6 @@
 // Function to dynamically load a script
 var public_key = "Bc6Q0uME5PARDagYq";
+
 function resendOTP() {
     // Your logic to resend OTP
     resetOTPInputs();
@@ -377,9 +378,9 @@ function add_hotel_details() {
     }
 
     if (isOkFilelds) {
-        document.getElementById("loaderactive").style.display = "grid";
-        document.getElementById("disablebutton").style.display = "none";
-        setTimeout(() => {
+        document.getElementById("loaderactive_login").style.display = "grid";
+        document.getElementById("disablebutton_login").style.display = "none";
+//        setTimeout(() => {
             // Retrieve the existing array from localStorage
             const employeesArrayString = localStorage.getItem("employee_login");
             const employeesArray = employeesArrayString ? JSON.parse(employeesArrayString) : [];
@@ -401,8 +402,8 @@ function add_hotel_details() {
                 hotel_add = document.getElementById("hotel_add").value = "";
                 employee_addhar = document.getElementById("employee_addhar").value = "";
                 employee_pan = document.getElementById("employee_pan").value = "";
-                document.getElementById("loaderactive").style.display = "none";
-                document.getElementById("disablebutton").style.display = "inline";
+                document.getElementById("loaderactive_login").style.display = "none";
+                document.getElementById("disablebutton_login").style.display = "inline";
                 return;
             }
 
@@ -426,7 +427,7 @@ function add_hotel_details() {
                 "type": "A",
                 "hotel_id": nextHotelId
             };
-
+            
             const hotel_details = {
                 "hotel_id": nextHotelId,
                 "hotel_name": hotel_name,
@@ -434,13 +435,12 @@ function add_hotel_details() {
                 "addhar_card": employee_addhar,
                 "pan_card": employee_pan
             };
-
+         
             if (typeof emailjs !== 'undefined') {
-                emailjs.init(public_key); // Replace with your public key
+                    emailjs.init(public_key); // Replace with your public key
 
                 var templateParams = {
-                    employee_id: "SUNEMP" + nextEmpId,
-                    to_name: 'ANUJ',
+                    employee_id: "SUNEMP" + nextEmpId,               
                     reply_to: employee_email,
                     User_password: employee_password,
                     User_name: employee_email,
@@ -450,7 +450,7 @@ function add_hotel_details() {
 
                 emailjs.send('service_qpgwb67', 'template_ur5e3q4', templateParams).then(
                         (response) => {
-                    console.log(response);
+                 
                     alert("Successfully added a hotel. Please login. The username and password will be sent to your email address.");
                     // Add the new employee data to the array
                     employeesArray.push(employee_login_hotel);
@@ -472,8 +472,8 @@ function add_hotel_details() {
                     employee_pan = document.getElementById("employee_pan").value = "";
                     window.location = "employee_login.html";
 
-                    document.getElementById("loaderactive").style.display = "none";
-                    document.getElementById("disablebutton").style.display = "inline";
+                    document.getElementById("loaderactive_login").style.display = "none";
+                    document.getElementById("disablebutton_login").style.display = "inline";
                 },
                         (error) => {
                     alert("Error sending email");
@@ -486,28 +486,26 @@ function add_hotel_details() {
                     employee_addhar = document.getElementById("employee_addhar").value = "";
                     employee_pan = document.getElementById("employee_pan").value = "";
 
-                    document.getElementById("loaderactive").style.display = "none";
-                    document.getElementById("disablebutton").style.display = "inline";
+                    document.getElementById("loaderactive_login").style.display = "none";
+                    document.getElementById("disablebutton_login").style.display = "inline";
                 }
                 );
             } else {
                 alert('EmailJS library not loaded');
             }
-//
-        }, 2000); // 2 seconds delay
+
+//        }, 2000); // 2 seconds delay
         employee_Username = document.getElementById("employee_Username").value = "";
         employee_add = document.getElementById("employee_add").value = "";//ejw te2401
-        //ex te2001
-        //M
         employee_phone = document.getElementById("employee_phone").value = "";
-        employee_email = document.getElementById("employee_email").value = "";
+        employee_email = document.getElementById("employ ee_email").value = "";
         hotel_name = document.getElementById("hotel_name").value = "";
         hotel_add = document.getElementById("hotel_add").value = "";
         employee_addhar = document.getElementById("employee_addhar").value = "";
         employee_pan = document.getElementById("employee_pan").value = "";
 
-        document.getElementById("loaderactive").style.display = "none";
-        document.getElementById("disablebutton").style.display = "inline";
+        document.getElementById("loaderactive_login").style.display = "none";
+        document.getElementById("disablebutton_login").style.display = "inline";
     }
 }
 
