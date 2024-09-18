@@ -144,7 +144,7 @@ function generateRandomString(len) {
 const rooms = [
 
     {
-        "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQf5JbWUQApKbde0mcDHJ-DxU3llLO1070PA&s",
+        "photo": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
         "hotel_id": 1,
         "description": "123 Main St, Cityville BEST ROOM",
         "ac_nonac": "Non AC",
