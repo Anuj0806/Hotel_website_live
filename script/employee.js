@@ -753,7 +753,7 @@ function populate_rooms() {
 
     filteredData.sort((a, b) => a.room_id - b.room_id);
     if (filteredData.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No rooms data available</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center;">No rooms data available</td></tr>';
         return;
     }
 
