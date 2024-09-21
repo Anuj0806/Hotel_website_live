@@ -1037,7 +1037,7 @@ function populate_employee() {
     }
     filteredData.sort((a, b) => a.emp_id - b.emp_id);
     if (filteredData.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No rooms data available</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center;">No rooms data available</td></tr>';
         return;
     }
     filteredData.forEach(employee => {
