@@ -27,7 +27,9 @@
             function checkemail() {
                 if (guestEmail !== "admin@gmail.com") {
                     var anch = document.getElementById("roomStatus");
-                    anch.href = "roomStatus.html";                 
+                    var anchMobile = document.getElementById("roomStatusMobile");
+                    anch.href = "roomStatus.html";
+                    anchMobile.href = "roomStatus.html";
                 } else {
                     alert("This is the demo email. If you want to Check website, then Sign Up first.");
                     return;
@@ -55,7 +57,7 @@
         <ul class="sidenav" id="mobile-nav">
             <li class="sidenav-close"><a href="#" class="sidenav-close"><i class="material-icons">close</i></a></li>
             <li><a onclick="display_guest_details()">Edit Details</a></li>
-            <li><a id="roomStatus" onclick="checkemail()">Book Room Status</a></li>
+            <li><a id="roomStatusMobile" onclick="checkemail()">Book Room Status</a></li>
             <li><a href="logout.html?guest=guest">Log Out</a></li>
         </ul>
 
