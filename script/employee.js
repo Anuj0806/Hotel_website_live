@@ -432,6 +432,7 @@ function add_hotel_details() {
                 "hotel_id": nextHotelId,
                 "hotel_name": hotel_name,
                 "hotel_address": hotel_add,
+                "hotel_mobile": employee_phone,
                 "addhar_card": employee_addhar,
                 "pan_card": employee_pan
             };
