@@ -1625,7 +1625,7 @@ function populate_Payment() {
 
     const hotels_id_storage = parseInt(sessionStorage.getItem('employeeHotelId'), 10);
 //    const hotels_id_storage = ;
-    const filteredData = bookingParsedData.filter(booking => booking.hotel_id === hotels_id_storage && booking.approve_status === "A" && (booking.reservation_status === "CO" || booking.reservation_status === "R"));
+    const filteredData = bookingParsedData.filter(booking => booking.hotel_id === hotels_id_storage && booking.approve_status === "A" && booking.reservation_status === "CO" );
     filteredData.sort((a, b) => a.room_id - b.room_id);
     if (filteredData.length === 0) {
         tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No rooms data available</td></tr>';
