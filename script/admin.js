@@ -93,9 +93,10 @@ const hotels_data = [
     }
 ];
 
-const hotels_data_local = localStorage.getItem('hotels_data');
+
 let hotels_data_json = hotels_data;
 
+const hotels_data_local = localStorage.getItem('hotels_data');
 try {
     if (hotels_data_local) {
         const parsedData = JSON.parse(hotels_data_local);
